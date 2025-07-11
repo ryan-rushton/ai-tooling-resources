@@ -185,12 +185,26 @@ Once approved, I'll proceed with iterative implementation following the test-dri
 ## Phase 5: Iterative Implementation
 
 ### Implementation Approach
-**Follow test-driven, iterative development.**
+**Follow test-driven, iterative development with comprehensive testing integration.**
+
+#### Testing Guide Integration
+**Reference the Test Writing Guide**: Use [`guides/testing/test-writing-guide.md`](../testing/test-writing-guide.md) throughout implementation. The test writing guide provides:
+- **Comprehensive testing strategies** (unit, integration, end-to-end)
+- **Test-driven development workflows** that integrate with this feature development process
+- **Framework-specific testing patterns** based on codebase exploration findings
+- **Code coverage and quality metrics** to ensure feature robustness
+
+#### How Testing Integrates with Feature Development
+1. **Pre-implementation**: Review existing test patterns (from Phase 1 exploration) to understand project testing conventions
+2. **Test Setup**: Use the guide's framework detection to set up appropriate testing infrastructure
+3. **TDD Cycles**: Follow the guide's red-green-refactor methodology for each feature component
+4. **Integration Testing**: Apply the guide's integration testing strategies when connecting new features to existing systems
+5. **Quality Assurance**: Use the guide's coverage and quality metrics to ensure comprehensive testing
 
 #### Implementation Cycle
 1. **Re-read Plan**: Always re-read the approved plan before starting implementation
 2. **Start Small**: Begin with the simplest component or function
-3. **Test First**: Write tests before implementation (follow Test Writing Guide)
+3. **Test First**: Write tests before implementation (follow Test Writing Guide methodology)
 4. **Implement**: Build the minimal working version
 5. **Verify**: Run tests and manual verification
 6. **Iterate**: Move to next component/feature

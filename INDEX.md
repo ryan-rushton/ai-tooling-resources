@@ -4,10 +4,18 @@
 
 ## 🚀 Quick Start
 
-1. **New to this repo?** → Read [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) for task-specific routing
-2. **Starting development?** → Use [`guides/workflows/feature-development-workflow.md`](guides/workflows/feature-development-workflow.md)
-3. **Need to understand code?** → Use [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md)
-4. **Writing tests?** → Use [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md)
+**🎯 START HERE → Read [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) next for task-specific routing**
+
+### First Steps
+1. **Always start with** [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) - it routes you to the right guide for your task
+2. **Then follow** the recommended guide based on your specific needs
+
+### Common Tasks
+- **Starting development?** → Use [`guides/workflows/feature-development-workflow.md`](guides/workflows/feature-development-workflow.md)
+- **Need to understand code?** → Use [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md)
+- **Writing tests?** → Use [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md)
+- **Improving existing code?** → Use [`guides/development/code-review-refactoring.md`](guides/development/code-review-refactoring.md)
+- **Fixing bugs?** → Use [`guides/development/error-handling-debugging.md`](guides/development/error-handling-debugging.md)
 
 ## 📁 Repository Structure
 
@@ -55,6 +63,17 @@ ai-tooling-resources/
 2. **Follow**: [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md)
 3. **Use**: [`templates/feature-plan-template.md`](templates/feature-plan-template.md)
 
+## 📚 Guide Summary Table
+
+| Guide | Purpose | When to Use | Key Features |
+|-------|---------|-------------|--------------|
+| [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | Complete end-to-end feature development | Building new features or significant changes | Explore → Plan → Review → Implement |
+| [Codebase Exploration](guides/development/codebase-exploration.md) | Systematic code understanding | Working with unfamiliar code | Architecture analysis, pattern detection |
+| [Planning & Documentation](guides/planning/planning-documentation.md) | Creating effective implementation plans | Before any significant changes | Requirements analysis, technical research |
+| [Test Writing Guide](guides/testing/test-writing-guide.md) | Comprehensive testing guidance | Writing or improving tests | TDD approach, unit & integration tests |
+| [Error Handling & Debugging](guides/development/error-handling-debugging.md) | Systematic troubleshooting | Fixing bugs or performance issues | Methodical problem-solving techniques |
+| [Code Review & Refactoring](guides/development/code-review-refactoring.md) | Improving existing code quality | Code reviews or refactoring tasks | Safe refactoring, quality improvements |
+
 ## 📚 Guide Details
 
 ### Core Workflow Guides
@@ -83,6 +102,18 @@ ai-tooling-resources/
 - **Approach**: Test-driven development with iterative implementation
 - **Use When**: Writing any tests or implementing with testing
 
+#### Error Handling & Debugging
+- **File**: [`guides/development/error-handling-debugging.md`](guides/development/error-handling-debugging.md)
+- **Purpose**: Systematic approach to diagnosing and resolving errors
+- **Approach**: Methodical troubleshooting and problem-solving
+- **Use When**: Encountering bugs, errors, or unexpected behavior
+
+#### Code Review & Refactoring
+- **File**: [`guides/development/code-review-refactoring.md`](guides/development/code-review-refactoring.md)
+- **Purpose**: Systematic approach to improving existing code quality
+- **Approach**: Safe refactoring techniques and code review best practices
+- **Use When**: Improving existing code or conducting code reviews
+
 ## 🛠️ Templates and Examples
 
 ### Templates
@@ -102,7 +133,32 @@ ai-tooling-resources/
   - Shows how all guides work together
   - Demonstrates best practices in action
 
-## 🔄 Workflow Integration
+## 🔄 Workflow Integration & Decision Tree
+
+### Simple Decision Tree
+```
+What are you trying to do?
+│
+├── 🏗️  Build something new?
+│   └── → [GUIDE_ROUTER.md] → [Feature Development Workflow]
+│       └── Uses: Codebase Exploration + Planning + Testing
+│
+├── 🐛 Fix a bug or error?
+│   └── → [GUIDE_ROUTER.md] → [Error Handling & Debugging]
+│       └── Uses: Codebase Exploration + Testing (if needed)
+│
+├── ✨ Improve existing code?
+│   └── → [GUIDE_ROUTER.md] → [Code Review & Refactoring]
+│       └── Uses: Codebase Exploration + Planning + Testing
+│
+├── 🧪 Add test coverage?
+│   └── → [GUIDE_ROUTER.md] → [Testing Guide]
+│       └── Uses: Codebase Exploration (for patterns)
+│
+└── 🔍 Understand unfamiliar code?
+    └── → [GUIDE_ROUTER.md] → [Codebase Exploration]
+        └── Standalone guide, feeds into others
+```
 
 ### How the Guides Work Together
 ```
@@ -129,11 +185,24 @@ GUIDE_ROUTER.md (determine task type)
 4. [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md) → Create plan (Phase 3)
 5. [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md) → Implement with tests (Phase 5)
 
+#### Improving Project Robustness
+1. [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) → Route to "Code Review & Refactoring" + "Testing"
+2. [`guides/development/code-review-refactoring.md`](guides/development/code-review-refactoring.md) → Assess code quality
+3. [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md) → Add comprehensive tests
+4. [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md) → Plan improvements
+
+#### Adding Test Coverage
+1. [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) → Route to "Testing Guide"
+2. [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md) → Understand existing patterns
+3. [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md) → Write comprehensive tests
+4. [`guides/workflows/feature-development-workflow.md`](guides/workflows/feature-development-workflow.md) → If part of larger development
+
 #### Bug Fix or Maintenance
 1. [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) → Identify as "Bug Fix"
-2. [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md) → Understand the code
-3. [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md) → Add tests if needed
-4. [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md) → Plan if complex
+2. [`guides/development/error-handling-debugging.md`](guides/development/error-handling-debugging.md) → Systematic troubleshooting
+3. [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md) → Understand the code
+4. [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md) → Add tests if needed
+5. [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md) → Plan if complex
 
 ## 📖 Usage Instructions
 

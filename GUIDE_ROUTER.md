@@ -9,51 +9,57 @@
 - Complete end-to-end process from requirements to implementation
 - Includes exploration, planning, review, and iterative development
 - **When to use**: Any time you're building something new
+- **Examples**: Adding user authentication, creating a new API endpoint, building a dashboard component
 
 ### 🔍 Understanding an Unfamiliar Codebase
 **Read First**: [`guides/development/codebase-exploration.md`](guides/development/codebase-exploration.md)
 - Systematic approach to exploring and understanding codebases
 - Framework detection, pattern analysis, and architecture understanding
 - **When to use**: Before making changes to unfamiliar code
+- **Examples**: Joining a new team, working with legacy code, understanding third-party integrations
 
 ### 📋 Creating Implementation Plans
 **Read First**: [`guides/planning/planning-documentation.md`](guides/planning/planning-documentation.md)
 - Comprehensive planning templates and review processes
 - Requirements analysis and technical research methodologies
 - **When to use**: Before implementing any significant changes
+- **Examples**: Planning a database migration, designing a new microservice, refactoring a core module
 
 ### 🧪 Writing Tests (Unit & Integration)
 **Read First**: [`guides/testing/test-writing-guide.md`](guides/testing/test-writing-guide.md)
 - Complete testing guidance for unit and integration tests
 - Test-driven development and iterative testing approaches
 - **When to use**: Whenever you need to write or improve tests
+- **Examples**: Adding test coverage to existing code, writing tests for new features, testing API endpoints
 
 ### 🐛 Debugging and Error Handling
 **Read First**: [`guides/development/error-handling-debugging.md`](guides/development/error-handling-debugging.md)
 - Systematic approach to diagnosing and resolving errors
 - Methodical troubleshooting and problem-solving techniques
 - **When to use**: When encountering bugs, errors, or unexpected behavior
+- **Examples**: Fixing production bugs, resolving performance issues, troubleshooting failing tests
 
 ### ✨ Code Review and Refactoring
 **Read First**: [`guides/development/code-review-refactoring.md`](guides/development/code-review-refactoring.md)
 - Systematic approach to improving existing code quality
 - Safe refactoring techniques and code review best practices
 - **When to use**: When improving existing code or conducting code reviews
+- **Examples**: Improving project robustness, reducing technical debt, optimizing performance
 
 ## Task-Specific Routing
 
 ### Development Tasks
 
-| Task Type | Primary Guide | Supporting Guides |
-|-----------|---------------|-------------------|
-| New Feature Development | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) |
-| Bug Fix | [Error Handling & Debugging](guides/development/error-handling-debugging.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Testing](guides/testing/test-writing-guide.md) |
-| Code Refactoring | [Code Review & Refactoring](guides/development/code-review-refactoring.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) |
-| Code Review | [Code Review & Refactoring](guides/development/code-review-refactoring.md) | [Codebase Exploration](guides/development/codebase-exploration.md) |
-| Performance Issues | [Error Handling & Debugging](guides/development/error-handling-debugging.md) | [Code Review & Refactoring](guides/development/code-review-refactoring.md), [Codebase Exploration](guides/development/codebase-exploration.md) |
-| Adding Tests | [Testing](guides/testing/test-writing-guide.md) | [Codebase Exploration](guides/development/codebase-exploration.md) |
-| API Development | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) |
-| Component Creation | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Testing](guides/testing/test-writing-guide.md) |
+| Task Type | Primary Guide | Supporting Guides | Examples |
+|-----------|---------------|-------------------|----------|
+| New Feature Development | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) | User auth, payment processing, data export |
+| Bug Fix | [Error Handling & Debugging](guides/development/error-handling-debugging.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Testing](guides/testing/test-writing-guide.md) | Database connection errors, UI glitches |
+| Code Refactoring | [Code Review & Refactoring](guides/development/code-review-refactoring.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) | Breaking down monoliths, performance optimization |
+| Improving Project Robustness | [Code Review & Refactoring](guides/development/code-review-refactoring.md) | [Testing](guides/testing/test-writing-guide.md), [Planning](guides/planning/planning-documentation.md) | Adding error handling, input validation, monitoring |
+| Adding Test Coverage | [Testing](guides/testing/test-writing-guide.md) | [Codebase Exploration](guides/development/codebase-exploration.md) | Unit tests for utilities, integration test suites |
+| Performance Issues | [Error Handling & Debugging](guides/development/error-handling-debugging.md) | [Code Review & Refactoring](guides/development/code-review-refactoring.md), [Codebase Exploration](guides/development/codebase-exploration.md) | Slow queries, memory leaks, high CPU usage |
+| API Development | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Planning](guides/planning/planning-documentation.md), [Testing](guides/testing/test-writing-guide.md) | REST endpoints, GraphQL resolvers, webhooks |
+| Component Creation | [Feature Development Workflow](guides/workflows/feature-development-workflow.md) | [Codebase Exploration](guides/development/codebase-exploration.md), [Testing](guides/testing/test-writing-guide.md) | React components, Vue components, UI libraries |
 
 ### Planning Tasks
 
