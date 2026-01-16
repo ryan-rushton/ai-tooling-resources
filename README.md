@@ -1,187 +1,279 @@
 # AI Tooling Resources
 
-A comprehensive collection of systematic guidance for LLM-powered development tools. This repository provides structured workflows, templates, and best practices for consistent, high-quality software development.
+A unified configuration system for AI-powered coding tools. Manage global and project-specific instructions for Claude Code, Gemini Code Assist, Cursor, and OpenAI Codex from a single source.
 
-## 🚀 Quick Start for LLM Tools
+## Quick Start
 
-**Start here**: [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) - Your navigation system for finding the right guidance for any task.
+### One-Line Install
 
-### For Any Development Task:
-1. **Read**: [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md) to identify your task type
-2. **Follow**: The recommended guide path
-3. **Use**: Templates and examples as needed
-4. **Reference**: [`INDEX.md`](INDEX.md) for comprehensive navigation
-
-## 📁 Repository Structure
-
-```
-ai-tooling-resources/
-├── GUIDE_ROUTER.md              # 🎯 Main routing system - START HERE
-├── INDEX.md                     # 📚 Master index and navigation
-├── README.md                    # 📖 This file - repository overview
-├── guides/                      # 📋 Core guidance documents
-│   ├── workflows/               # 🔄 End-to-end process guides
-│   ├── development/             # 💻 Development-specific guides
-│   ├── planning/                # 📝 Planning and documentation guides
-│   └── testing/                 # 🧪 Testing guides and strategies
-├── templates/                   # 📄 Reusable templates
-└── examples/                    # 💡 Complete workflow examples
-```
-
-## 🎯 Core Methodology
-
-This repository implements a systematic approach to development:
-
-### 1. **Explore First**
-- Understand the codebase before making changes
-- Follow systematic exploration patterns
-- Document findings for future reference
-
-### 2. **Plan Before Building**
-- Create detailed, reviewable plans
-- Get human approval before implementation
-- Use structured templates for consistency
-
-### 3. **Test While Building**
-- Write tests alongside implementation
-- Follow test-driven development principles
-- Ensure comprehensive coverage
-
-### 4. **Build Iteratively**
-- Implement in small, verifiable steps
-- Validate each step before proceeding
-- Maintain working state throughout
-
-## 🛠️ Key Features
-
-### Systematic Workflows
-- **Feature Development**: Complete end-to-end process from exploration to implementation
-- **Codebase Exploration**: Structured approach to understanding unfamiliar code
-- **Planning & Documentation**: Effective planning templates and review processes
-- **Test Writing**: Comprehensive testing guidance for unit and integration tests
-- **Error Handling & Debugging**: Systematic approach to diagnosing and resolving issues
-- **Code Review & Refactoring**: Safe improvement of existing code quality
-
-### Smart Routing
-- **Task-Based Navigation**: Find the right guide for any development task
-- **Dependency Management**: Understand how guides work together
-- **Quick Reference**: Fast access to common patterns and solutions
-
-### Practical Templates
-- **Feature Plans**: Ready-to-use planning templates for new development
-- **Bug Fix Plans**: Structured approach to debugging and fixing issues
-- **Refactoring Plans**: Safe code improvement and quality enhancement
-- **Exploration Notes**: Structured documentation for codebase findings
-
-### Real Examples
-- **Complete Workflows**: See the methodology in action
-- **Best Practices**: Learn from proven patterns
-- **Common Scenarios**: Solutions for typical development challenges
-
-## 📖 Usage Examples
-
-### For New Feature Development
 ```bash
-# 1. Start with routing
-cat GUIDE_ROUTER.md | grep -A5 "New Feature"
-
-# 2. Follow the workflow
-cat guides/workflows/feature-development-workflow.md
-
-# 3. Use the template
-cp templates/feature-plan-template.md plan-my-feature.md
-
-# 4. Reference the example
-cat examples/complete-workflow-example.md
+curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/main/scripts/bootstrap.sh | bash
 ```
 
-### For Understanding Existing Code
+This will:
+- Install global configuration files for all supported AI tools
+- Copy the repository to `~/.ai-tooling-resources`
+- Set up tracking metadata for safe updates
+
+### Install for a Specific Project
+
 ```bash
-# 1. Check routing for exploration
-cat GUIDE_ROUTER.md | grep -A5 "Unfamiliar Codebase"
-
-# 2. Follow exploration guide
-cat guides/development/codebase-exploration.md
-
-# 3. Use exploration template
-cp templates/exploration-notes-template.md notes-my-exploration.md
+cd your-project
+curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/main/scripts/bootstrap.sh | bash -s -- --project-dir $(pwd)
 ```
 
-### For Test Writing
+## Supported Tools
+
+| Tool | Global Config | Project Config | File Format |
+|------|---------------|----------------|-------------|
+| **Claude Code** | `~/.claude/CLAUDE.md` | `CLAUDE.md` | Markdown |
+| **Gemini Code Assist** | `~/.gemini/GEMINI.md` | `GEMINI.md` | Markdown |
+| **Cursor** | _(UI Settings)_ | `AGENTS.md` | Markdown |
+| **OpenAI Codex** | `~/.codex/AGENTS.md` | `AGENTS.md` | Markdown |
+
+**Note:** Cursor and Codex share the same `AGENTS.md` file in project directories.
+
+## Configuration Files
+
+### GLOBAL.md
+Contains meta-behavioral preferences that apply across all projects:
+- Communication style (succinct, direct)
+- Code quality standards (comments explain "why" not "what")
+- Problem-solving approach
+- General development philosophy
+
+Installed to global locations for Claude and Gemini.
+
+### AGENTS.md
+Contains repository-specific guidance:
+- Testing strategies
+- Build and lint commands
+- Project architecture
+- Code conventions
+- Common tasks and workflows
+
+Shared between Cursor and Codex. Installed to both global Codex location and project directories.
+
+## Usage
+
+### After Installation
+
+1. **Review Global Files**: Customize your global preferences
+   ```bash
+   # Claude Code global config
+   code ~/.claude/CLAUDE.md
+
+   # Gemini Code Assist global config
+   code ~/.gemini/GEMINI.md
+
+   # Codex global config
+   code ~/.codex/AGENTS.md
+   ```
+
+2. **Review Project Files**: Add project-specific instructions
+   ```bash
+   cd your-project
+
+   # Claude Code project config
+   code CLAUDE.md
+
+   # Gemini Code Assist project config
+   code GEMINI.md
+
+   # Cursor + Codex shared config
+   code AGENTS.md
+   ```
+
+3. **Customize**: Add your own sections below the managed sections marker
+
+### Updating Configuration
+
+The update script preserves your modifications while updating unchanged sections from the template.
+
 ```bash
-# 1. Find testing guidance
-cat GUIDE_ROUTER.md | grep -A5 "Writing Tests"
+# Dry run to see what would change
+~/.ai-tooling-resources/scripts/update.sh --dry-run
 
-# 2. Follow testing guide
-cat guides/testing/test-writing-guide.md
+# Update all global configurations
+~/.ai-tooling-resources/scripts/update.sh
 
-# 3. Apply testing methodology
-# Follow test-driven development approach
+# Update project-specific configurations
+cd your-project
+~/.ai-tooling-resources/scripts/update.sh --project-dir $(pwd)
 ```
 
-## 🎯 Target Audience
+The updater:
+- ✅ Updates sections you haven't modified
+- ⚠️ Skips sections you've customized
+- 📊 Reports what was updated and what was skipped
 
-### Primary: LLM Development Tools
-- **Claude Code**: Systematic development workflows
-- **GitHub Copilot**: Structured code generation
-- **Cursor**: Intelligent code assistance
-- **Custom AI Tools**: Consistent development patterns
+## How It Works
 
-### Secondary: Human Developers
-- **Team Leads**: Standardized development processes
-- **Junior Developers**: Learning systematic approaches
-- **Code Reviewers**: Consistent quality standards
-- **Project Managers**: Understanding development workflows
+### Section-Based Updates
 
-## 🚀 Integration Instructions
+Each configuration file is divided into sections (markdown headers). The installer:
+1. Creates a `.ai-tooling-meta.json` file alongside each config
+2. Stores SHA256 hashes of each section
+3. On update, compares current hashes to originals
+4. Updates only unmodified sections
 
-### For LLM Tools
-1. **Always start** with [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md)
-2. **Follow the systematic approaches** in the guides
-3. **Use templates** for consistent output
-4. **Reference examples** for complex scenarios
-5. **Document your process** using the templates
+Example metadata file:
+```json
+{
+  "version": "1.0.0",
+  "installed_at": "2026-01-17T10:30:00Z",
+  "source_repo": "ai-tooling-resources",
+  "sections": {
+    "Communication Style": "a1b2c3...",
+    "Code Quality": "d4e5f6...",
+    "Problem Solving": "g7h8i9..."
+  }
+}
+```
 
-### For Human Users
-1. **Point LLM tools** to this repository
-2. **Use the guides** as reference for code reviews
-3. **Adopt the templates** for your own planning
-4. **Follow the methodology** for consistent results
+### File Structure
 
-## 📊 Benefits
+```
+~/.ai-tooling-resources/
+├── templates/
+│   ├── GLOBAL.md          # Meta-behavior template
+│   └── AGENTS.md          # Project-specific template
+├── scripts/
+│   ├── bootstrap.sh       # Curl entry point
+│   ├── install.sh         # Main installer
+│   └── update.sh          # Update script
+├── config/
+│   └── tool-mappings.json # Tool configuration
+└── README.md
+```
 
-### For Development Quality
-- **Consistent Patterns**: Standardized approaches across projects
-- **Reduced Errors**: Systematic exploration prevents mistakes
-- **Better Planning**: Structured planning reduces scope creep
-- **Comprehensive Testing**: Test-driven development ensures quality
+## Manual Installation
 
-### For Development Speed
-- **Faster Onboarding**: Systematic exploration of unfamiliar code
-- **Reduced Rework**: Planning and review prevent implementation issues
-- **Reusable Patterns**: Templates and examples speed development
-- **Clear Process**: Defined workflows eliminate decision paralysis
+If you prefer not to use the bootstrap script:
 
-### For Team Collaboration
-- **Shared Language**: Common terminology and approaches
-- **Reviewable Plans**: Structured documentation for team review
-- **Consistent Output**: Standardized deliverables
-- **Knowledge Transfer**: Documented processes and patterns
+```bash
+# Clone the repository
+git clone https://github.com/ryan-rushton/ai-tooling-resources.git
+cd ai-tooling-resources
 
-## 🤝 Contributing
+# Install globally only
+./scripts/install.sh --global-only
 
-This repository is designed to be:
-- **Project-Agnostic**: Works across different languages and frameworks
-- **LLM-Friendly**: Provides concrete, actionable guidance
-- **Systematically Complete**: Covers the full development lifecycle
-- **Practically Tested**: Based on real-world development experience
+# Install for current project only
+./scripts/install.sh --project-only --project-dir /path/to/project
 
-## 📚 Learn More
+# Install both global and project configs
+./scripts/install.sh --project-dir /path/to/project
+```
 
-- **Start Here**: [`GUIDE_ROUTER.md`](GUIDE_ROUTER.md)
-- **Full Navigation**: [`INDEX.md`](INDEX.md)
-- **Complete Example**: [`examples/complete-workflow-example.md`](examples/complete-workflow-example.md)
+## Customization
+
+### Adding Custom Sections
+
+Add your own sections below the managed sections marker in any config file:
+
+```markdown
+---
+
+*This file is managed by ai-tooling-resources. Customize sections below this line.*
+
+## My Custom Section
+
+Your custom content here...
+```
+
+Custom sections won't be tracked or updated by the update script.
+
+### Modifying Template Sections
+
+If you modify a managed section (e.g., "Communication Style"), the update script will:
+- Detect the change via hash comparison
+- Skip updating that section
+- Report it as "modified by user"
+
+This allows you to override any default behavior while still receiving updates to other sections.
+
+## Advanced Usage
+
+### Multiple Projects
+
+Install project configs for different repositories:
+
+```bash
+# Project A
+cd ~/projects/project-a
+~/.ai-tooling-resources/scripts/install.sh --project-only --project-dir $(pwd)
+
+# Project B
+cd ~/projects/project-b
+~/.ai-tooling-resources/scripts/install.sh --project-only --project-dir $(pwd)
+```
+
+Each project gets independent tracking and can be updated separately.
+
+### Version Control
+
+**Global configs**: Typically not version controlled (personal preferences)
+
+**Project configs**: Usually committed to git
+```bash
+# Add to version control
+git add CLAUDE.md GEMINI.md AGENTS.md
+git commit -m "Add AI tool configurations"
+```
+
+**Metadata files**: Should be gitignored
+```bash
+# Add to .gitignore
+echo "*.ai-tooling-meta.json" >> .gitignore
+```
+
+## Troubleshooting
+
+### "No metadata found" warning
+
+This means a config file wasn't installed by this tool. Either:
+- It was created manually (safe to ignore)
+- The metadata was deleted (reinstall to track updates)
+
+### Updates not applying
+
+Ensure you're running from the install directory:
+```bash
+~/.ai-tooling-resources/scripts/update.sh
+```
+
+### Conflicts after manual edits
+
+The update script preserves your changes. If you want to reset a section:
+1. Delete the section from your config file
+2. Run the update script
+3. The section will be restored from the template
+
+## Contributing
+
+Improvements to templates and scripts are welcome:
+
+1. Fork the repository
+2. Make your changes
+3. Test with `--dry-run`
+4. Submit a pull request
+
+## License
+
+MIT License - see LICENSE file for details
+
+## References
+
+- [Claude Code Documentation](https://code.claude.com/docs)
+- [Gemini Code Assist](https://developers.google.com/gemini-code-assist)
+- [Cursor Rules Documentation](https://cursor.com/docs/context/rules)
+- [OpenAI Codex Agents.md Guide](https://developers.openai.com/codex/guides/agents-md)
 
 ---
 
-**Remember**: The goal is consistent, high-quality development through systematic approaches. Start with the routing system and follow the structured workflows for best results.
+**Sources:**
+- [Rules | Cursor Docs](https://cursor.com/docs/context/rules)
+- [Claude Code settings](https://code.claude.com/docs/en/settings)
+- [Gemini CLI configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/get-started/configuration.md)
+- [OpenAI Codex Agents.md Guide](https://developers.openai.com/codex/guides/agents-md)

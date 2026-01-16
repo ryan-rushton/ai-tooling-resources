@@ -1,0 +1,63 @@
+{
+  "tools": {
+    "claude": {
+      "name": "Claude Code",
+      "enabled": true,
+      "global": {
+        "path": "~/.claude/CLAUDE.md",
+        "source_template": "GLOBAL.md"
+      },
+      "project": {
+        "path": "CLAUDE.md",
+        "source_template": "GLOBAL.md"
+      }
+    },
+    "gemini": {
+      "name": "Gemini Code Assist",
+      "enabled": true,
+      "global": {
+        "path": "~/.gemini/GEMINI.md",
+        "source_template": "GLOBAL.md"
+      },
+      "project": {
+        "path": "GEMINI.md",
+        "source_template": "GLOBAL.md"
+      }
+    },
+    "cursor": {
+      "name": "Cursor",
+      "enabled": true,
+      "global": {
+        "path": null,
+        "note": "Cursor uses UI-based global settings, no global file"
+      },
+      "project": {
+        "path": "AGENTS.md",
+        "source_template": "AGENTS.md",
+        "note": "Using AGENTS.md instead of deprecated .cursorrules"
+      }
+    },
+    "codex": {
+      "name": "OpenAI Codex",
+      "enabled": true,
+      "global": {
+        "path": "~/.codex/AGENTS.md",
+        "source_template": "AGENTS.md"
+      },
+      "project": {
+        "path": "AGENTS.md",
+        "source_template": "AGENTS.md"
+      }
+    }
+  },
+  "shared_files": {
+    "AGENTS.md": {
+      "description": "Shared across Cursor and Codex in project directory",
+      "used_by": ["cursor", "codex"]
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2026-01-17"
+  }
+}
