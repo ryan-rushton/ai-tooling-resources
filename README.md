@@ -1,4 +1,4 @@
-# AI Tooling Resources
+# AI Tooling
 
 A unified configuration system for AI-powered coding tools. Manage global and project-specific instructions for Claude Code, Gemini Code Assist, Cursor, and OpenAI Codex from a single source.
 
@@ -208,7 +208,7 @@ Add your own sections below the managed sections marker in any config file:
 ```markdown
 ---
 
-*This file is managed by ai-tooling. Customize sections below this line.*
+_This file is managed by ai-tooling. Customize sections below this line._
 
 ## My Custom Section
 

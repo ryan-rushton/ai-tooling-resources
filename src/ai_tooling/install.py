@@ -32,7 +32,7 @@ def get_repo_root() -> Path:
     if install_dir.exists():
         return install_dir
 
-    raise RuntimeError("Could not find AI tooling resources. Run bootstrap.sh first.")
+    raise RuntimeError("Could not find AI tooling. Run bootstrap.sh first.")
 
 
 def load_tool_mappings() -> dict[str, Any]:

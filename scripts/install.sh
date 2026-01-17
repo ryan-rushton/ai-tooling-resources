@@ -147,7 +147,7 @@ install_file() {
 }
 
 # Copy repository to install directory
-print_header "Installing AI Tooling Resources to $INSTALL_DIR..."
+print_header "Installing AI Tooling to $INSTALL_DIR..."
 mkdir -p "$INSTALL_DIR"
 cp -r "$REPO_ROOT"/* "$INSTALL_DIR/"
 print_success "Repository installed to $INSTALL_DIR"

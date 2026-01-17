@@ -207,7 +207,7 @@ update_file() {
 }
 
 # Update repository
-print_header "Updating AI Tooling Resources..."
+print_header "Updating AI Tooling..."
 cd "$INSTALL_DIR"
 git pull --quiet origin main 2>/dev/null || print_warning "Could not update repository (not a git repo or no internet)"
 echo ""

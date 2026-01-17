@@ -137,7 +137,7 @@ Example:
 
 ______________________________________________________________________
 
-*This file provides feature-specific guidance supplementing the project-level AGENTS.md.*
+_This file provides feature-specific guidance supplementing the project-level AGENTS.md._
 
 ## Additional Notes
 

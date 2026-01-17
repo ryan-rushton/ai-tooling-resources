@@ -8,7 +8,7 @@ REPO_URL="https://github.com/ryan-rushton/ai-tooling.git"
 INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling}"
 BIN_DIR="$HOME/.local/bin"
 
-echo "🤖 AI Tooling Resources Installer"
+echo "🤖 AI Tooling Installer"
 echo "=================================="
 echo ""
 
