@@ -207,6 +207,8 @@ Example documentation:
 If nothing stands out, leave this section empty or ask: "Are there any project-specific patterns I should know about?"
 -->
 
+---
+
 _This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling). Customize sections below this line._
 
 ## Additional Notes

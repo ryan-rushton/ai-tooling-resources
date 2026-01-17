@@ -135,7 +135,7 @@ Example:
 - `redis-py` (5.0.0+) - Token storage and session management
 -->
 
-______________________________________________________________________
+---
 
 _This file provides feature-specific guidance supplementing the project-level AGENTS.md._
 

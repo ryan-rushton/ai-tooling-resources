@@ -309,7 +309,7 @@ MIT License - see LICENSE file for details
 - [Cursor Rules Documentation](https://cursor.com/docs/context/rules)
 - [OpenAI Codex Agents.md Guide](https://developers.openai.com/codex/guides/agents-md)
 
-______________________________________________________________________
+---
 
 **Sources:**
 

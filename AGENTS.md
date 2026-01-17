@@ -14,7 +14,7 @@ Unified configuration system for AI-powered coding tools. Provides templates and
 - **pytest** - Testing framework
 - **ruff** - Linter and formatter
 - **mypy** - Static type checker (strict mode)
-- **mdformat** - Markdown formatter
+- **Prettier** - Markdown and JSON formatter
 
 ### Architecture
 
@@ -86,8 +86,9 @@ uv run ruff format src/
 # Type checking
 uv run mypy src/
 
-# Format markdown
-uv run mdformat templates/*.md README.md AGENTS.md
+# Format markdown and JSON (using Prettier via VS Code extension)
+# Save files in VS Code with format-on-save enabled, or run:
+# npx prettier --write "**/*.md" "**/*.json"
 
 # Fix auto-fixable linting issues
 uv run ruff check --fix src/
@@ -180,7 +181,7 @@ ai-tooling update --local --project-dir src/authentication
 - **Type annotations after JSON**: Annotate variables after `json.loads()` for mypy strictness
 - **Feature-level instructions**: Use `ai-tooling init-feature` to create AGENTS.md files in subdirectories for feature/module-specific context that supplements the project-level AGENTS.md
 
-______________________________________________________________________
+---
 
 _This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling). Customize sections below this line._
 
@@ -220,7 +221,7 @@ _This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling
 **Making Template Changes:**
 
 1. Edit `templates/GLOBAL.md` or `templates/PROJECT.md`
-1. Run `uv run mdformat templates/*.md`
+1. Format with Prettier (save in VS Code or run `npx prettier --write templates/*.md`)
 1. Test locally: `uv run ai-tooling install --local --project-dir .`
 1. Verify update preserves user changes: add custom section, run update --dry-run
 1. Run all checks before committing

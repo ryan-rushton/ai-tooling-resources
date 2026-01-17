@@ -66,7 +66,7 @@ This file contains meta-behavioral preferences that apply across all AI coding t
 - Don't make assumptions about user intent
 - Present options when multiple valid approaches exist
 
-______________________________________________________________________
+---
 
 _This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling). Customize sections below this line._
 
