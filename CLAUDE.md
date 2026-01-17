@@ -5,6 +5,7 @@ This repository provides a unified configuration system for AI coding tools.
 ## Repository Purpose
 
 This is a **template and script repository** for managing AI tool configuration files. It contains:
+
 - **Templates**: `GLOBAL.md` and `AGENTS.md` templates for AI tool instructions
 - **Scripts**: Installation and update scripts for managing config files
 - **Config**: Tool mappings for Claude Code, Gemini, Cursor, and Codex
@@ -16,9 +17,9 @@ This repository has **no code to execute** - it's purely for documentation and s
 When making changes to this repository, focus on:
 
 1. **Templates** (`templates/*.md`): These are the source templates that get copied to user systems
-2. **Scripts** (`scripts/*.sh`): Bash scripts for install/update functionality
-3. **Config** (`config/tool-mappings.json`): Tool configuration metadata
-4. **README.md**: User-facing documentation
+1. **Scripts** (`scripts/*.sh`): Bash scripts for install/update functionality
+1. **Config** (`config/tool-mappings.json`): Tool configuration metadata
+1. **README.md**: User-facing documentation
 
 ## Important Notes
 
@@ -32,6 +33,6 @@ When making changes to this repository, focus on:
 When modifying scripts:
 
 1. Test the install script in a clean environment
-2. Test the update script with both modified and unmodified sections
-3. Verify metadata files are created correctly
-4. Check that the bootstrap script works with curl
+1. Test the update script with both modified and unmodified sections
+1. Verify metadata files are created correctly
+1. Check that the bootstrap script works with curl

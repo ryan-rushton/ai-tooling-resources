@@ -11,6 +11,7 @@ curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/m
 ```
 
 This will:
+
 - Install global configuration files for all supported AI tools
 - Copy the repository to `~/.ai-tooling-resources`
 - Set up tracking metadata for safe updates
@@ -24,19 +25,21 @@ curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/m
 
 ## Supported Tools
 
-| Tool | Global Config | Project Config | File Format |
-|------|---------------|----------------|-------------|
-| **Claude Code** | `~/.claude/CLAUDE.md` | `CLAUDE.md` | Markdown |
-| **Gemini Code Assist** | `~/.gemini/GEMINI.md` | `GEMINI.md` | Markdown |
-| **Cursor** | _(UI Settings)_ | `AGENTS.md` | Markdown |
-| **OpenAI Codex** | `~/.codex/AGENTS.md` | `AGENTS.md` | Markdown |
+| Tool                   | Global Config         | Project Config | File Format |
+| ---------------------- | --------------------- | -------------- | ----------- |
+| **Claude Code**        | `~/.claude/CLAUDE.md` | `CLAUDE.md`    | Markdown    |
+| **Gemini Code Assist** | `~/.gemini/GEMINI.md` | `GEMINI.md`    | Markdown    |
+| **Cursor**             | _(UI Settings)_       | `AGENTS.md`    | Markdown    |
+| **OpenAI Codex**       | `~/.codex/AGENTS.md`  | `AGENTS.md`    | Markdown    |
 
 **Note:** Cursor and Codex share the same `AGENTS.md` file in project directories.
 
 ## Configuration Files
 
 ### GLOBAL.md
+
 Contains meta-behavioral preferences that apply across all projects:
+
 - Communication style (succinct, direct)
 - Code quality standards (comments explain "why" not "what")
 - Problem-solving approach
@@ -45,7 +48,9 @@ Contains meta-behavioral preferences that apply across all projects:
 Installed to global locations for Claude and Gemini.
 
 ### AGENTS.md
+
 Contains repository-specific guidance:
+
 - Testing strategies
 - Build and lint commands
 - Project architecture
@@ -59,6 +64,7 @@ Shared between Cursor and Codex. Installed to both global Codex location and pro
 ### After Installation
 
 1. **Review Global Files**: Customize your global preferences
+
    ```bash
    # Claude Code global config
    code ~/.claude/CLAUDE.md
@@ -70,7 +76,8 @@ Shared between Cursor and Codex. Installed to both global Codex location and pro
    code ~/.codex/AGENTS.md
    ```
 
-2. **Review Project Files**: Add project-specific instructions
+1. **Review Project Files**: Add project-specific instructions
+
    ```bash
    cd your-project
 
@@ -84,40 +91,66 @@ Shared between Cursor and Codex. Installed to both global Codex location and pro
    code AGENTS.md
    ```
 
-3. **Customize**: Add your own sections below the managed sections marker
+1. **Customize**: Add your own sections below the managed sections marker
 
 ### Updating Configuration
 
-The update script preserves your modifications while updating unchanged sections from the template.
+The `ai-tooling` CLI provides convenient commands for managing your configurations:
 
 ```bash
-# Dry run to see what would change
-~/.ai-tooling-resources/scripts/update.sh --dry-run
+# Update all configurations (global + local)
+ai-tooling update
 
-# Update all global configurations
-~/.ai-tooling-resources/scripts/update.sh
+# Update only global configurations
+ai-tooling update --global
 
-# Update project-specific configurations
-cd your-project
-~/.ai-tooling-resources/scripts/update.sh --project-dir $(pwd)
+# Update only local/project configurations
+ai-tooling update --local
+
+# Preview what would change without applying updates
+ai-tooling update --dry-run
+
+# Update the ai-tooling CLI itself to the latest version
+ai-tooling self-update
 ```
 
 The updater:
+
 - ✅ Updates sections you haven't modified
 - ⚠️ Skips sections you've customized
 - 📊 Reports what was updated and what was skipped
+
+### CLI Commands Reference
+
+```bash
+ai-tooling install                 # Install both global and local configs
+ai-tooling install --global        # Install only global configs
+ai-tooling install --local         # Install only local/project configs
+
+ai-tooling update                  # Update all configurations
+ai-tooling update --global         # Update only global configs
+ai-tooling update --local          # Update only local configs
+ai-tooling update --dry-run        # Preview changes
+
+ai-tooling self-update             # Update the CLI itself
+
+ai-tooling --version               # Show version
+ai-tooling --help                  # Show help
+```
 
 ## How It Works
 
 ### Section-Based Updates
 
 Each configuration file is divided into sections (markdown headers). The installer:
+
 1. Creates a `.ai-tooling-meta.json` file alongside each config
-2. Stores SHA256 hashes of each section
-3. On update, compares current hashes to originals
-4. Updates only unmodified sections
+1. Stores SHA256 hashes of each section
+1. On update, compares current hashes to originals
+1. Updates only unmodified sections
 
 Example metadata file:
+
 ```json
 {
   "version": "1.0.0",
@@ -187,6 +220,7 @@ Custom sections won't be tracked or updated by the update script.
 ### Modifying Template Sections
 
 If you modify a managed section (e.g., "Communication Style"), the update script will:
+
 - Detect the change via hash comparison
 - Skip updating that section
 - Report it as "modified by user"
@@ -216,6 +250,7 @@ Each project gets independent tracking and can be updated separately.
 **Global configs**: Typically not version controlled (personal preferences)
 
 **Project configs**: Usually committed to git
+
 ```bash
 # Add to version control
 git add CLAUDE.md GEMINI.md AGENTS.md
@@ -223,6 +258,7 @@ git commit -m "Add AI tool configurations"
 ```
 
 **Metadata files**: Should be gitignored
+
 ```bash
 # Add to .gitignore
 echo "*.ai-tooling-meta.json" >> .gitignore
@@ -233,12 +269,14 @@ echo "*.ai-tooling-meta.json" >> .gitignore
 ### "No metadata found" warning
 
 This means a config file wasn't installed by this tool. Either:
+
 - It was created manually (safe to ignore)
 - The metadata was deleted (reinstall to track updates)
 
 ### Updates not applying
 
 Ensure you're running from the install directory:
+
 ```bash
 ~/.ai-tooling-resources/scripts/update.sh
 ```
@@ -246,18 +284,19 @@ Ensure you're running from the install directory:
 ### Conflicts after manual edits
 
 The update script preserves your changes. If you want to reset a section:
+
 1. Delete the section from your config file
-2. Run the update script
-3. The section will be restored from the template
+1. Run the update script
+1. The section will be restored from the template
 
 ## Contributing
 
 Improvements to templates and scripts are welcome:
 
 1. Fork the repository
-2. Make your changes
-3. Test with `--dry-run`
-4. Submit a pull request
+1. Make your changes
+1. Test with `--dry-run`
+1. Submit a pull request
 
 ## License
 
@@ -270,9 +309,10 @@ MIT License - see LICENSE file for details
 - [Cursor Rules Documentation](https://cursor.com/docs/context/rules)
 - [OpenAI Codex Agents.md Guide](https://developers.openai.com/codex/guides/agents-md)
 
----
+______________________________________________________________________
 
 **Sources:**
+
 - [Rules | Cursor Docs](https://cursor.com/docs/context/rules)
 - [Claude Code settings](https://code.claude.com/docs/en/settings)
 - [Gemini CLI configuration](https://github.com/google-gemini/gemini-cli/blob/main/docs/get-started/configuration.md)
