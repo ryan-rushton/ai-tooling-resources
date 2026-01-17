@@ -33,7 +33,7 @@
       },
       "project": {
         "path": "AGENTS.md",
-        "source_template": "AGENTS.md",
+        "source_template": "PROJECT.md",
         "note": "Using AGENTS.md instead of deprecated .cursorrules"
       }
     },
@@ -42,11 +42,11 @@
       "enabled": true,
       "global": {
         "path": "~/.codex/AGENTS.md",
-        "source_template": "AGENTS.md"
+        "source_template": "PROJECT.md"
       },
       "project": {
         "path": "AGENTS.md",
-        "source_template": "AGENTS.md"
+        "source_template": "PROJECT.md"
       }
     }
   },

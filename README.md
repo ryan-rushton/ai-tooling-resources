@@ -170,7 +170,7 @@ Example metadata file:
 ~/.ai-tooling-resources/
 ├── templates/
 │   ├── GLOBAL.md          # Meta-behavior template
-│   └── AGENTS.md          # Project-specific template
+│   └── PROJECT.md         # Project-specific template
 ├── scripts/
 │   ├── bootstrap.sh       # Curl entry point
 │   ├── install.sh         # Main installer

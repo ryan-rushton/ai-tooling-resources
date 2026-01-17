@@ -63,13 +63,18 @@ def create_metadata(target_file: Path, sections: dict[str, str]) -> None:
         "sections": {name: compute_section_hash(content) for name, content in sections.items()},
     }
 
-    metadata_file = target_file.with_suffix(target_file.suffix + ".ai-tooling-meta.json")
+    # Store metadata in .ai-tooling directory
+    metadata_dir = target_file.parent / ".ai-tooling"
+    metadata_dir.mkdir(exist_ok=True)
+    metadata_file = metadata_dir / f"{target_file.name}.meta.json"
     metadata_file.write_text(json.dumps(metadata, indent=2))
 
 
 def load_metadata(target_file: Path) -> dict[str, Any] | None:
     """Load metadata file if it exists."""
-    metadata_file = target_file.with_suffix(target_file.suffix + ".ai-tooling-meta.json")
+    metadata_dir = target_file.parent / ".ai-tooling"
+    metadata_file = metadata_dir / f"{target_file.name}.meta.json"
+
     if not metadata_file.exists():
         return None
 
@@ -82,7 +87,9 @@ def load_metadata(target_file: Path) -> dict[str, Any] | None:
 
 def update_metadata_hash(target_file: Path, section_name: str, new_hash: str) -> None:
     """Update the hash for a specific section in metadata."""
-    metadata_file = target_file.with_suffix(target_file.suffix + ".ai-tooling-meta.json")
+    metadata_dir = target_file.parent / ".ai-tooling"
+    metadata_file = metadata_dir / f"{target_file.name}.meta.json"
+
     if not metadata_file.exists():
         return
 

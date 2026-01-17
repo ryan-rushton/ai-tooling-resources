@@ -164,7 +164,10 @@ def update_global_files(dry_run: bool = False) -> None:
 
 
 def update_local_files(project_dir: str | None = None, dry_run: bool = False) -> None:
-    """Update project-specific configuration files."""
+    """Update project-specific configuration files.
+
+    Only updates AGENTS.md since CLAUDE.md and GEMINI.md are symlinks to it.
+    """
     if project_dir is None:
         project_dir = "."
 
@@ -172,33 +175,23 @@ def update_local_files(project_dir: str | None = None, dry_run: bool = False) ->
 
     print_header(f"Checking project configuration files in {project_path}...")
 
-    config = load_tool_mappings()
+    # Only update AGENTS.md - the symlinks (CLAUDE.md, GEMINI.md) will reflect changes automatically
+    agents_path = project_path / "AGENTS.md"
 
-    for _tool_name, tool_config in config["tools"].items():
-        if not tool_config.get("enabled", True):
-            continue
+    updated, skipped, skipped_names = update_file(str(agents_path), "PROJECT.md", dry_run)
 
-        project_config = tool_config.get("project")
-        if not project_config or not project_config.get("path"):
-            continue
+    if updated > 0:
+        if dry_run:
+            print_info(f"Would update {updated} section(s) in {agents_path}")
+        else:
+            print_success(f"Updated {updated} section(s) in {agents_path}")
+        print_info("Symlinks (CLAUDE.md, GEMINI.md) will reflect these changes automatically")
 
-        template = project_config["source_template"]
-        target_filename = project_config["path"]
-        target_path = project_path / target_filename
+    if skipped > 0:
+        skipped_list = "\n    - ".join(skipped_names)
+        print_warning(f"Skipped {skipped} modified section(s):\n    - {skipped_list}")
 
-        updated, skipped, skipped_names = update_file(str(target_path), template, dry_run)
-
-        if updated > 0:
-            if dry_run:
-                print_info(f"Would update {updated} section(s) in {target_path}")
-            else:
-                print_success(f"Updated {updated} section(s) in {target_path}")
-
-        if skipped > 0:
-            skipped_list = "\n    - ".join(skipped_names)
-            print_warning(f"Skipped {skipped} modified section(s):\n    - {skipped_list}")
-
-        click.echo()
+    click.echo()
 
 
 def run_update(scope: str = "both", project_dir: str | None = None, dry_run: bool = False) -> None:

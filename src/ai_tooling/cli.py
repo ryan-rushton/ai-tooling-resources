@@ -71,6 +71,26 @@ def update(is_global: bool, is_local: bool, project_dir: str | None, dry_run: bo
     run_update(scope=update_scope, project_dir=project_dir, dry_run=dry_run)
 
 
+@main.command("init-feature")
+@click.option(
+    "--dir",
+    "target_dir",
+    type=click.Path(file_okay=False, dir_okay=True),
+    help="Directory for feature-specific instructions (default: current directory)",
+)
+@click.option(
+    "--name",
+    "file_name",
+    default="AGENTS.md",
+    help="Name for the feature file (default: AGENTS.md)",
+)
+def init_feature(target_dir: str | None, file_name: str) -> None:
+    """Initialize feature-specific instructions in a subdirectory."""
+    from ai_tooling.install import install_feature_file
+
+    install_feature_file(target_dir=target_dir, file_name=file_name)
+
+
 @main.command("self-update")
 def self_update() -> None:
     """Update the ai-tooling CLI itself to the latest version."""

@@ -26,16 +26,6 @@ This file contains meta-behavioral preferences that apply across all AI coding t
 - Only add comments when the reasoning isn't obvious from the code
 - Avoid redundant comments that restate the code
 
-Example of good vs bad comments:
-
-```javascript
-// Bad: Increment counter by 1
-counter++;
-
-// Good: Retry logic requires incrementing attempt count for exponential backoff
-counter++;
-```
-
 ### Code Style
 
 - Follow existing patterns in the codebase
