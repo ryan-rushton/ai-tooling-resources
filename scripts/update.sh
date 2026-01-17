@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# AI Tooling Resources Update Script
+# AI Tooling Update Script
 # Updates configuration files while preserving user modifications
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
-INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling-resources}"
+INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling}"
 
 # Colors for output
 RED='\033[0;31m'

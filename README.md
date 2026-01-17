@@ -7,20 +7,20 @@ A unified configuration system for AI-powered coding tools. Manage global and pr
 ### One-Line Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/main/scripts/bootstrap.sh | bash
+curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling/main/scripts/bootstrap.sh | bash
 ```
 
 This will:
 
 - Install global configuration files for all supported AI tools
-- Copy the repository to `~/.ai-tooling-resources`
+- Copy the repository to `~/.ai-tooling`
 - Set up tracking metadata for safe updates
 
 ### Install for a Specific Project
 
 ```bash
 cd your-project
-curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/main/scripts/bootstrap.sh | bash -s -- --project-dir $(pwd)
+curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling/main/scripts/bootstrap.sh | bash -s -- --project-dir $(pwd)
 ```
 
 ## Supported Tools
@@ -155,7 +155,7 @@ Example metadata file:
 {
   "version": "1.0.0",
   "installed_at": "2026-01-17T10:30:00Z",
-  "source_repo": "ai-tooling-resources",
+  "source_repo": "ai-tooling",
   "sections": {
     "Communication Style": "a1b2c3...",
     "Code Quality": "d4e5f6...",
@@ -167,7 +167,7 @@ Example metadata file:
 ### File Structure
 
 ```
-~/.ai-tooling-resources/
+~/.ai-tooling/
 ├── templates/
 │   ├── GLOBAL.md          # Meta-behavior template
 │   └── PROJECT.md         # Project-specific template
@@ -186,8 +186,8 @@ If you prefer not to use the bootstrap script:
 
 ```bash
 # Clone the repository
-git clone https://github.com/ryan-rushton/ai-tooling-resources.git
-cd ai-tooling-resources
+git clone https://github.com/ryan-rushton/ai-tooling.git
+cd ai-tooling
 
 # Install globally only
 ./scripts/install.sh --global-only
@@ -208,7 +208,7 @@ Add your own sections below the managed sections marker in any config file:
 ```markdown
 ---
 
-*This file is managed by ai-tooling-resources. Customize sections below this line.*
+*This file is managed by ai-tooling. Customize sections below this line.*
 
 ## My Custom Section
 
@@ -236,11 +236,11 @@ Install project configs for different repositories:
 ```bash
 # Project A
 cd ~/projects/project-a
-~/.ai-tooling-resources/scripts/install.sh --project-only --project-dir $(pwd)
+~/.ai-tooling/scripts/install.sh --project-only --project-dir $(pwd)
 
 # Project B
 cd ~/projects/project-b
-~/.ai-tooling-resources/scripts/install.sh --project-only --project-dir $(pwd)
+~/.ai-tooling/scripts/install.sh --project-only --project-dir $(pwd)
 ```
 
 Each project gets independent tracking and can be updated separately.
@@ -278,7 +278,7 @@ This means a config file wasn't installed by this tool. Either:
 Ensure you're running from the install directory:
 
 ```bash
-~/.ai-tooling-resources/scripts/update.sh
+~/.ai-tooling/scripts/update.sh
 ```
 
 ### Conflicts after manual edits

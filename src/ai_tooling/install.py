@@ -28,7 +28,7 @@ def get_repo_root() -> Path:
         return repo_root
 
     # If not in dev mode, check install directory
-    install_dir = expand_path("~/.ai-tooling-resources")
+    install_dir = expand_path("~/.ai-tooling")
     if install_dir.exists():
         return install_dir
 

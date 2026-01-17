@@ -182,7 +182,7 @@ ai-tooling update --local --project-dir src/authentication
 
 ______________________________________________________________________
 
-_This file is managed by [ai-tooling-resources](https://github.com/ryan-rushton/ai-tooling-resources). Customize sections below this line._
+_This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling). Customize sections below this line._
 
 ## Additional Notes
 

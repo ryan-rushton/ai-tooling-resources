@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# AI Tooling Resources Bootstrap Script
-# Usage: curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling-resources/main/scripts/bootstrap.sh | bash
+# AI Tooling Bootstrap Script
+# Usage: curl -fsSL https://raw.githubusercontent.com/ryan-rushton/ai-tooling/main/scripts/bootstrap.sh | bash
 
-REPO_URL="https://github.com/ryan-rushton/ai-tooling-resources.git"
-INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling-resources}"
+REPO_URL="https://github.com/ryan-rushton/ai-tooling.git"
+INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling}"
 BIN_DIR="$HOME/.local/bin"
 
 echo "🤖 AI Tooling Resources Installer"
@@ -44,7 +44,7 @@ mkdir -p "$BIN_DIR"
 # Create a wrapper script that uses the venv
 cat > "$BIN_DIR/ai-tooling" <<'EOF'
 #!/usr/bin/env bash
-INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling-resources}"
+INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling}"
 exec "$INSTALL_DIR/.venv/bin/python" -m ai_tooling.cli "$@"
 EOF
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# AI Tooling Resources Installer
+# AI Tooling Installer
 # Installs global and project-specific AI tool configuration files
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 CONFIG_FILE="$REPO_ROOT/config/tool-mappings.json"
-INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling-resources}"
+INSTALL_DIR="${AI_TOOLING_INSTALL_DIR:-$HOME/.ai-tooling}"
 
 # Colors for output
 RED='\033[0;31m'
@@ -110,7 +110,7 @@ create_metadata() {
 {
   "version": "1.0.0",
   "installed_at": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
-  "source_repo": "ai-tooling-resources",
+  "source_repo": "ai-tooling",
   "sections": {
     $json_sections
   }

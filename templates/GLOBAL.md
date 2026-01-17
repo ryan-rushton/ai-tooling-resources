@@ -68,7 +68,7 @@ This file contains meta-behavioral preferences that apply across all AI coding t
 
 ______________________________________________________________________
 
-*This file is managed by [ai-tooling-resources](https://github.com/ryan-rushton/ai-tooling-resources). Customize sections below this line.*
+*This file is managed by [ai-tooling](https://github.com/ryan-rushton/ai-tooling). Customize sections below this line.*
 
 ## Custom Global Preferences
 

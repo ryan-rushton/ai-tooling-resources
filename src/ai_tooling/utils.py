@@ -59,7 +59,7 @@ def create_metadata(target_file: Path, sections: dict[str, str]) -> None:
     metadata = {
         "version": "1.0.0",
         "installed_at": datetime.utcnow().isoformat() + "Z",
-        "source_repo": "ai-tooling-resources",
+        "source_repo": "ai-tooling",
         "sections": {name: compute_section_hash(content) for name, content in sections.items()},
     }
 
